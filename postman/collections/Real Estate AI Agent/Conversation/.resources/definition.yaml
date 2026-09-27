@@ -1,0 +1,7 @@
+$kind: collection
+name: Conversation
+description: |-
+  Endpoints mounted at `/api/conversation`.
+  These routes drive the AI-powered sales conversation with potential
+  property buyers via OpenAI.
+order: 1

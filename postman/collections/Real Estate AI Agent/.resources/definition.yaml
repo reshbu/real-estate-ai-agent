@@ -1,0 +1,17 @@
+$kind: collection
+name: Real Estate AI Agent
+description: |-
+  Collection for the Real Estate AI Agent API — an Express.js server that
+  exposes a conversational AI endpoint powered by OpenAI.
+
+  Base URL is stored in the {{baseUrl}} collection variable.
+  Set the {{openaiApiKey}} variable if you need to inspect or override the
+  server-side key (the server reads it from its own environment; this variable
+  is provided here for documentation purposes only).
+variables:
+  - key: baseUrl
+    value: 'http://localhost:3000'
+    description: Root URL of the running Real Estate AI Agent server
+  - key: openaiApiKey
+    value: ''
+    description: OpenAI API key used by the server (set in server .env — stored here for reference)

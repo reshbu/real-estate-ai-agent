@@ -1,0 +1,36 @@
+$kind: http-request
+method: POST
+url: '{{baseUrl}}/api/conversation'
+order: 1000
+description: |-
+  Sends a customer message to the Real Estate AI Agent and returns the AI
+  assistant's reply.
+
+  The server forwards `customerMessage` to OpenAI and responds with both the
+  original message and the generated AI response.
+
+  **Request body fields**
+  | Field             | Type   | Required | Description                          |
+  |-------------------|--------|----------|--------------------------------------|
+  | customerMessage   | string | ✅ Yes   | The message from the property buyer  |
+
+  **Success response (200 OK)**
+  ```json
+  {
+    "customerMessage": "I'm looking for a 3-bedroom house in Austin",
+    "aiResponse": "That sounds great! What is your budget range?..."
+  }
+  ```
+
+  **Error responses**
+  - `400 Bad Request` — `customerMessage` field is missing from the request body.
+  - `500 Internal Server Error` — OpenAI call failed or `OPENAI_API_KEY` is not configured on the server.
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "customerMessage": "I'm looking for a 3-bedroom house in Austin under $500,000. What options do you have?"
+    }
